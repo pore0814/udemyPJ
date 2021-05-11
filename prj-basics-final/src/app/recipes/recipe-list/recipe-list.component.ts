@@ -1,7 +1,7 @@
 import { RecipeService } from './../recipe.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
-
+import { ActivatedRoute, Params } from '@angular/router';
 
 
 // import { Recipe } from '../recipe.model';
@@ -15,10 +15,13 @@ export class RecipeListComponent implements OnInit {
 
  recipes: Recipe[];
 
-  constructor(private recipeService : RecipeService ) { }
+  constructor(private recipeService : RecipeService,
+    private route: ActivatedRoute ) { }
 
   ngOnInit() {
-    // this.recipes = this.recipeService.getRecipes();
+     const id = this.route.snapshot.params['id'];
+     console.log('id',id);
+     this.recipes = this.recipeService.getRecipes();
   }
 
 }

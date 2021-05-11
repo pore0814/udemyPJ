@@ -9,6 +9,7 @@ export class RecipeService {
 
   // 'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg'
   //'https://upload.wikimedia.org/wikipedia/commons/1/15/Recipe_logo.jpeg'
+
  private recipes: Recipe[] = [
     new Recipe('A Test Recipe', 'This is simply a test', 'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
       [
@@ -22,7 +23,10 @@ export class RecipeService {
       ])
   ];
 
-  getRecipes(index:number) {
-    return this.recipes['index'];
-  }
+  // getRecipes(index:number) {
+  //   return this.recipes['index'];
+  // }
+  getRecipes() {
+       return this.recipes.slice();
+     }
 }
