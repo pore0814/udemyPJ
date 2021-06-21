@@ -2,7 +2,7 @@ import { RecipeService } from './../recipe.service';
 import { ShoppingListService } from './../../shopping-list/shopping-list.service';
 import { Recipe } from './../recipe.model';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NumberSymbol } from '@angular/common';
 
 @Component({
@@ -15,7 +15,8 @@ export class RecipeDetailComponent implements OnInit {
   id:number;
 
   constructor(private recipeService:RecipeService,
-    private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     //const id = this.route.snapshot.params['id'];
@@ -27,8 +28,9 @@ export class RecipeDetailComponent implements OnInit {
     );
   }
 
-  onAddToShoppingList() {
-
+  onEditRecipe() {
+    //this.router.navigate(['../',this.id ,'edit'],{relativeTo: this.route});
+    this.router.navigate(['edit'],{relativeTo: this.route});
   }
 
 }
